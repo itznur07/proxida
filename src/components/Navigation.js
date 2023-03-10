@@ -34,7 +34,7 @@ const Navigation = () => {
               to='/shop'
               className='relative inline-block text-md px-4 py-2 leading-none  text-gray-800   hover:text-blue-500 hover:bg-white mt-4 lg:mt-0 ml-4'
             >
-              <span className='absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-[#01BAD4] rounded-full'>
+              <span className='absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-[#01BAD4] rounded-full'>
                 {/* {cartLength} */}new
               </span>
               Shop
@@ -49,7 +49,7 @@ const Navigation = () => {
               to='/blog'
               className='relative inline-block text-md px-4 py-2 leading-none  text-red-500   hover:text-blue-500 hover:bg-white mt-4 lg:mt-0 ml-4'
             >
-              <span className='absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-[#FFA800] rounded-full'>
+              <span className='absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-[#FFA800] rounded-full'>
                 sale
               </span>
               Buy now
