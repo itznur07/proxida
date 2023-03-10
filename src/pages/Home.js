@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../components/Banner";
+import Cateloge from "../components/Cateloge";
 import Navigation from "../components/Navigation";
 import TopNavigation from "../components/TopNavigation";
 
@@ -9,6 +10,7 @@ const Home = () => {
       <TopNavigation />
       <Navigation />
       <Banner />
+      <Cateloge />
     </>
   );
 };
