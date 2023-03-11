@@ -5,12 +5,11 @@ const productSlice = createSlice({
   name: "productsReducer",
   initialState: {
     products: [],
+    categories: {},
     loading: false,
     error: {},
   },
-  reducers: {
-  
-  },
+  reducers: {},
   extraReducers: {
     [getProducts.pending]: (state, action) => {
       state.loading = true;
