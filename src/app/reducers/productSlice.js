@@ -1,15 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getProducts } from "../actions/productsAction";
 
 const productSlice = createSlice({
   name: "productsReducer",
   initialState: {
-    products: [
-      { id: 0, name: "Shoes", desc: "Best shoes for men", price: 300 },
-      { id: 1, name: "Cap", desc: "Best Cap for men", price: 50 },
-    ],
+    products: [],
+    loading: false,
+    error: {},
   },
-  reducers: {},
-  extraReducers: {},
+  reducers: {
+  
+  },
+  extraReducers: {
+    [getProducts.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [getProducts.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.products = action.payload;
+    },
+    [getProducts.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+  },
 });
 
 export default productSlice.reducer;
