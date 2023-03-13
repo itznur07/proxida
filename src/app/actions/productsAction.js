@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk("products", async () => {
   return res.data;
 });
 
-export const getProductsCategory = createAsyncThunk("category", async () => {
-  const res = await axios.get("https://api.escuelajs.co/api/v1/categories");
+export const getProduct = createAsyncThunk("product", async (id) => {
+  const res = await axios.get(`https://api.escuelajs.co/api/v1/products/${id}`);
   return res.data;
 });

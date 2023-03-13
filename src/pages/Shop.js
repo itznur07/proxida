@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { BsFilter } from "react-icons/bs";
 import {
@@ -7,11 +6,13 @@ import {
   FaHeart,
   FaList,
   FaShoppingBasket,
-  FaStar, FaStarHalfAlt,
+  FaStar,
+  FaStarHalfAlt,
   FaTh,
   FaWindowClose
 } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getProducts } from "../app/actions/productsAction";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
@@ -236,20 +237,37 @@ const Shop = () => {
           <div className={`grid md:grid-cols-${view} gap-4 grid-cols-1 `}>
             {products.slice(0, showProduct).map((product) => (
               <div
-                className='group relative shadow-sm cursor-pointer hover:shadow-lg px-2 py-2 h-96'
+                className='group relative border  shadow-sm cursor-pointer hover:shadow-lg px-2 py-2 h-96'
                 key={product.id}
               >
-                <img src={product.images[0]} alt={product.title} />
-                <div className="mt-5 mx-3">
-                <ul className='flex items-center mb-1 mt-2 cursor-pointer'>
-                    <span className='w-5 h-5 rounded-full text-yellow-500'><FaStar /></span>
-                    <span className='w-5 h-5 rounded-full text-yellow-500'><FaStar /></span>
-                    <span className='w-5 h-5 rounded-full text-yellow-500'><FaStar /></span>
-                    <span className='w-5 h-5 rounded-full text-yellow-500'><FaStar /></span>
-                    <span className='w-5 h-5 rounded-full text-yellow-500'><FaStarHalfAlt /></span>
+                <Link to={`${product.id}`}>
+                  <img
+                    className='ease-linear hover:scale-105 transition duration-300 delay-100'
+                    loading='lazy'
+                    src={product.images[0]}
+                    alt={product.title}
+                  />
+                </Link>
+                <div className='mt-5 mx-3'>
+                  <ul className='flex items-center mb-1 mt-2 cursor-pointer'>
+                    <span className='w-5 h-5 rounded-full text-yellow-500'>
+                      <FaStar />
+                    </span>
+                    <span className='w-5 h-5 rounded-full text-yellow-500'>
+                      <FaStar />
+                    </span>
+                    <span className='w-5 h-5 rounded-full text-yellow-500'>
+                      <FaStar />
+                    </span>
+                    <span className='w-5 h-5 rounded-full text-yellow-500'>
+                      <FaStar />
+                    </span>
+                    <span className='w-5 h-5 rounded-full text-yellow-500'>
+                      <FaStarHalfAlt />
+                    </span>
                   </ul>
-                  <p className="text-md font-semibold">{product.title}</p>
-                  <p className="text-sm font-medium">Price: ${product.price}</p>
+                  <p className='text-md font-semibold'>{product.title}</p>
+                  <p className='text-sm font-medium'>Price: ${product.price}</p>
                   <ul className='flex items-center gap-3 mt-2 cursor-pointer'>
                     <span className='w-5 h-5 rounded-full bg-purple-500'></span>
                     <span className='w-5 h-5 rounded-full bg-pink-500'></span>
