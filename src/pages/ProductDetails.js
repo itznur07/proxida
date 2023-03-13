@@ -1,54 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { FaRegHeart, FaShareAlt } from "react-icons/fa";
+import { FaArrowLeft, FaRegHeart, FaShareAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getProduct } from "../app/actions/productsAction";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
 const ProductDetails = () => {
-  const [photoNumber, setPhotoNumber] = useState(0);
+  const [photo, setPhoto] = useState(0);
 
   const { id } = useParams();
-  const dispatch = useDispatch();
 
-  const { product } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProduct(id));
   }, []);
 
+  const { product } = useSelector((state) => state.products);
+
   return (
     <div>
       <Navigation />
       {/* product details here */}
-      <div className='flex items-center flex-wrap mt-8'>
+      <div className='flex items-center flex-wrap mt-5'>
         {/* image */}
         <div className='w-full md:w-1/2 p-4'>
           <div className='flex justify-center'>
             <div className='relative'>
+             <Link to="/shop"> <button className='text-sm font-medium text-black px-4 py-2.5 border mb-2 flex items-center space-x-2'><FaArrowLeft/> <span >Back</span></button></Link>
               <img
-                src={product.images[photoNumber]}
+                src={product.images[photo]}
                 alt='Product'
                 className='max-w-full h-auto'
               />
               <div className='flex cursor-pointer items-center justify-between md:space-x-2 mt-3'>
                 <img
-                  onClick={() => setPhotoNumber(0)}
+                  onClick={() => setPhoto(0)}
                   loading='lazy'
                   className='w-52 h-36 roudned border  '
                   src={product.images[0]}
                   alt=''
                 />
                 <img
-                  onClick={() => setPhotoNumber(1)}
+                  onClick={() => setPhoto(1)}
                   loading='lazy'
                   className='w-52 h-36 roudned border  '
                   src={product.images[1]}
                   alt=''
                 />
                 <img
-                  onClick={() => setPhotoNumber(2)}
+                  onClick={() => setPhoto(2)}
                   loading='lazy'
                   className='w-52 h-36 roudned border  '
                   src={product.images[2]}
