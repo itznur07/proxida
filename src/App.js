@@ -3,8 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
 import Shop from "./pages/Shop";
+import Signup from "./pages/SignUp";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path='/shop' element={<Shop />} />
       <Route path="/shop/:id" element={<ProductDetails />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/signup' element={<Signup />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
 }
