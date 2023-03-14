@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation";
 
 function Signup() {
+
   const {
     register,
     handleSubmit,
@@ -16,9 +16,9 @@ function Signup() {
 
   return (
     <>
-      <Navigation />
       <div className='max-w-md mx-auto bg-white p-8 rounded-md shadow-md mt-10'>
-        <h2 className='text-2xl font-bold mb-4'>Sign Up</h2>
+      <h2 className='text-4xl text-[#FFA800] text-center font-bold mb-3 uppercase'>Proxida</h2>
+        <h2 className='text-2xl font-bold mb-4 text-center'>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='mb-4'>
             <label className='block font-bold mb-2' htmlFor='name'>
@@ -110,14 +110,14 @@ function Signup() {
             )}
           </div>
           <div className='my-5 flex justify-center'>
-            <button className='bg-blue-500 hover:bg-blue-300 w-full py-3.5 text-xl font-bold text-white rounded'>
-              Sign up
-            </button>
+          <button className='bg-[#01BAD4] hover:bg-[#008799] w-full py-3 text-xl font-bold text-white rounded'>
+            Signup
+          </button>
           </div>
           <div>
             <p className='text-md font-medium my-2 text-slate-500'>
               already sign up?{" "}
-              <Link to='/login' className='text-xl font-bold text-blue-400'>
+              <Link to='/login' className='text-xl font-bold text-[#008799]'>
                 Log in
               </Link>
             </p>

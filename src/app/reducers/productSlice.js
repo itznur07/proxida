@@ -28,6 +28,7 @@ const productSlice = createSlice({
     [getProduct.fulfilled]: (state, action) => {
       state.loading = false;
       state.product = action.payload;
+      console.log(action.payload);
     },
     [getProduct.rejected]: (state, action) => {
       state.loading = false;
