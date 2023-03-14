@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaRegHeart, FaShareAlt, FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getProduct } from "../app/actions/productsAction";
+import { getProduct } from "../app/actions/productAction";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 

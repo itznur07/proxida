@@ -2,7 +2,6 @@ import React from "react";
 import { FiHeart, FiShoppingBag, FiUser } from "react-icons/fi";
 // import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 const Navigation = () => {
   // const { cart, wish } = useSelector((state) => state.products);
 
@@ -13,7 +12,7 @@ const Navigation = () => {
   return (
     <>
       <div className='bg-white relative'>
-        <nav className='flex items-center justify-between flex-wrap  py-6 md:mx-14'>
+        <nav className='md:flex md:flex-row flex flex-col items-center justify-between flex-wrap  py-6 md:mx-14'>
           {/* logo here */}
           <div className='flex items-center flex-shrink-0 text-gray-500 mr-6'>
             <Link to='/'>
