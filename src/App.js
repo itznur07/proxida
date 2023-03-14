@@ -1,6 +1,9 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
+import TopNavigation from "./components/TopNavigation";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -9,7 +12,11 @@ import Shop from "./pages/Shop";
 import Signup from "./pages/SignUp";
 
 function App() {
+  const {pathname} = useLocation()
   return (
+    <>
+    {pathname === '/' && <TopNavigation/> }
+    <Navigation/>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/shop' element={<Shop />} />
@@ -18,6 +25,8 @@ function App() {
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
     </Routes>
+    <Footer/>
+    </>
   );
 }
 

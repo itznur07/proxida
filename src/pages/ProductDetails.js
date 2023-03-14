@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    return dispatch(getProduct(id));
+     dispatch(getProduct(id));
   }, [id, dispatch]);
 
   const { product } = useSelector((state) => state.products);
@@ -22,7 +22,6 @@ const ProductDetails = () => {
 
   return (
     <>
-      <Navigation />
       {/* product details here */}
       <div className='flex items-center flex-wrap mt-5'>
         {/* image */}
@@ -30,45 +29,32 @@ const ProductDetails = () => {
           <div className='flex justify-center'>
             <div className='relative'>
               <Link to='/shop'>
-                {" "}
                 <button className='text-sm font-medium text-black px-4 py-2.5 border mb-2 flex items-center space-x-2'>
                   <FaArrowLeft /><span>Back</span>
                 </button>
               </Link>
-              <img
+              {/* <img
                 src={product.images[photo]}
                 alt='Product'
                 className='max-w-full h-auto'
-              />
+              /> */}
               <div className='flex cursor-pointer items-center justify-between md:space-x-2 mt-3'>
-                <img
+                {
+                  product?.images?.map((img,i)=> <img
                   onClick={() => setPhoto(0)}
                   loading='lazy'
                   className='w-52 h-36 roudned border  '
-                  src={product.images[0]}
+                  src={img}
                   alt=''
-                />
-                <img
-                  onClick={() => setPhoto(1)}
-                  loading='lazy'
-                  className='w-52 h-36 roudned border  '
-                  src={product.images[1]}
-                  alt=''
-                />
-                <img
-                  onClick={() => setPhoto(2)}
-                  loading='lazy'
-                  className='w-52 h-36 roudned border  '
-                  src={product.images[2]}
-                  alt=''
-                />
+                /> )
+                }
               </div>
             </div>
           </div>
         </div>
         {/* details */}
         <div className='w-full md:w-1/2 p-4'>
-          <h2 className='text-3xl font-semibold mb-4'>{product.title}</h2>
+          <h2 className='text-3xl font-semibold mb-4'>{product?.title}</h2>
           <div className='flex items-center mb-4'>
             <ul className='flex items-center mb-1 mt-2 cursor-pointer'>
               <span className='w-5 h-5 rounded-full text-yellow-500'>
@@ -87,15 +73,15 @@ const ProductDetails = () => {
                 <FaStarHalfAlt />
               </span>
             </ul>
-            <span className='text-gray-600 text-sm'>(4.5)</span>
+            <span className='text-gray-600 text-sm'>4.5</span>
           </div>
           <div className='flex items-center mb-4'>
             <span className='text-gray-600 text-lg font-medium mr-2'>
-              Price: ${product.price}
+              Price: {product?.price}
             </span>
           </div>
           <p className='text-gray-600 mb-4'>
-            {product.description.slice(0, 85)}
+            {product?.description?.slice(0, 85)}
           </p>
           <div className='flex items-center mb-4'>
             <span className='mr-2 font-semibold text-md uppercase'>
@@ -122,8 +108,6 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      {/* product details ends here */}
-      <Footer />
     </>
   );
 };

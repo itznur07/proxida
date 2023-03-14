@@ -67,7 +67,7 @@ const Shop = () => {
 
   return (
     <>
-      <Navigation />
+
       <div className={`flex flex-row  md:mx-14 mt-10 mx-5`}>
         {/* Product Listing */}
         <div className='flex flex-col '>
@@ -308,7 +308,6 @@ const Shop = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -16,7 +16,6 @@ function Signup() {
 
   return (
     <>
-      <Navigation />
       <div className='max-w-md mx-auto bg-white p-8 rounded-md shadow-md mt-10'>
         <h2 className='text-2xl font-bold mb-4'>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>

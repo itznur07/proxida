@@ -23,12 +23,9 @@ const Home = () => {
 
   return (
     <>
-      <TopNavigation />
-      <Navigation />
       <Banner />
       <Cateloge />
       <CateBanner />
-      <Footer />
     </>
   );
 };

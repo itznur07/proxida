@@ -17,7 +17,6 @@ function Login() {
 
   return (
     <>
-   <Navigation />
     <div className='max-w-md mx-auto bg-[#f5f5f5] p-8 rounded-md shadow-md mt-28'>
       <h2 className='text-2xl font-bold mb-4'>Log in</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
