@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaArrowLeft,
-  FaRegHeart,
-  FaShareAlt,
-  FaStar
-} from "react-icons/fa";
+import { FaArrowLeft, FaRegHeart, FaShareAlt, FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProduct } from "../app/actions/productsAction";
@@ -13,16 +8,12 @@ import Navigation from "../components/Navigation";
 
 const ProductDetails = () => {
   const [photo, setPhoto] = useState(0);
-
   const { id } = useParams();
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getProduct(id));
   }, [id, dispatch]);
-
-  const { product } = useSelector((state) => state.products);
-
+  const { product } = useSelector((state) => state.product);
   return (
     <>
       <Navigation />
@@ -72,12 +63,10 @@ const ProductDetails = () => {
                       index < Math.round(product?.rating) ? "" : "opacity-50"
                     }`}
                   >
-                    <FaStar />
+                    <FaStar className='text-yellow-500' />
                   </span>
                 ))}
-                <span className='text-gray-600 text-sm'>
-                  ({product?.rating})
-                </span>
+                <span className='text-gray-600 text-sm'>(5.0)</span>
               </ul>
             </div>
             <div className='flex items-center mb-4'>
@@ -123,5 +112,4 @@ hover:bg-gray-800 mx-2'
     </>
   );
 };
-
 export default ProductDetails;
