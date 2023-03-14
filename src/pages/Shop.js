@@ -240,12 +240,12 @@ const Shop = () => {
                 className='group relative border  shadow-sm cursor-pointer hover:shadow-lg px-2 py-2 h-96'
                 key={product.id}
               >
-                <Link to={`${product.id}`}>
+                <Link to={`${product?.id}`}>
                   <img
                     className='ease-linear hover:scale-105 transition duration-300 delay-100'
                     loading='lazy'
-                    src={product.images[0]}
-                    alt={product.title}
+                    src={product?.images[0]}
+                    alt={product?.title}
                   />
                 </Link>
                 <div className='mt-5 mx-3'>

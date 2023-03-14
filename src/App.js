@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import Signup from "./pages/SignUp";
 
 function App() {
+
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -22,3 +23,4 @@ function App() {
 }
 
 export default App;
+
