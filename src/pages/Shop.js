@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { BsFilter } from "react-icons/bs";
 import {
@@ -15,12 +15,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts } from "../app/actions/productsAction";
+import { filteredProduct } from "../app/reducers/productFilterSlice";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
 const Shop = () => {
+  const inputRef = useRef("");
   // Get product from state
-  const { products } = useSelector((state) => state.products);
+  // const { products } = useSelector((state) => state.products);
 
   // filter model
   const [showFiterModel, setShowFilterModel] = useState("hidden");
@@ -64,6 +66,14 @@ const Shop = () => {
 
   const handleMaxChange = (e) => {
     setMaxPrice(parseInt(e.target.value));
+  };
+
+  // search functionality
+
+  const { productContainer } = useSelector((state) => state.filter);
+
+  const filterProduct = () => {
+    dispatch(filteredProduct(inputRef.current.value));
   };
 
   return (
@@ -212,13 +222,18 @@ const Shop = () => {
             </div>
 
             {/* Search Field here  */}
-            <div className="relative">
+            <div className='relative'>
               <input
+                ref={inputRef}
+                onChange={filterProduct}
                 type='text'
                 placeholder='Search by product name...'
                 className='border px-5 py-2 w-96 rounded outline-none'
               />{" "}
-              <FaSearch size={18} className="absolute top-2.5 right-3 text-gray-500 cursor-pointer bottom-0"/>
+              <FaSearch
+                size={18}
+                className='absolute top-2.5 right-3 text-gray-500 cursor-pointer bottom-0'
+              />
             </div>
             {/* Sort Options */}
             <div className='flex flex-row items-center'>
@@ -245,7 +260,7 @@ const Shop = () => {
           {/* Product Cards here */}
 
           <div className={`grid md:grid-cols-${view} gap-4 grid-cols-1 `}>
-            {products.slice(0, showProduct).map((product) => (
+            {productContainer.slice(0, showProduct).map((product) => (
               <div
                 className='group relative border  shadow-sm cursor-pointer hover:shadow-lg px-2 py-2 h-96'
                 key={product.id}

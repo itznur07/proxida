@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getProducts } from "../actions/productsAction";
 
-const productsSlice = createSlice({
-  name: "productsReducer",
+const productFilterSlice = createSlice({
+  name: "filterReducer",
   initialState: {
-    products: [],
+    productContainer: [],
+    productFilter: [],
     loading: false,
     error: {},
   },
   reducers: {
-    searchFiltered: (state, action) => {},
+    filteredProduct: (state, action) => {
+      state.productContainer = state.productFilter.filter((product) =>
+        product.title.toLowerCase().includes(action.payload)
+      );
+    },
   },
   extraReducers: {
     [getProducts.pending]: (state, action) => {
@@ -17,7 +22,8 @@ const productsSlice = createSlice({
     },
     [getProducts.fulfilled]: (state, action) => {
       state.loading = false;
-      state.products = action.payload;
+      state.productContainer = action.payload;
+      state.productFilter = action.payload;
     },
     [getProducts.rejected]: (state, action) => {
       state.loading = false;
@@ -26,4 +32,5 @@ const productsSlice = createSlice({
   },
 });
 
-export default productsSlice.reducer;
+export const { filteredProduct } = productFilterSlice.actions;
+export default productFilterSlice.reducer;
