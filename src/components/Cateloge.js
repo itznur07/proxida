@@ -1,5 +1,4 @@
 import React from "react";
-
 const Cateloge = () => {
   return (
     <div className='grid md:grid-cols-4 gap-5 sm:grid-cols-1 justify-center md:mx-14 my-20'>

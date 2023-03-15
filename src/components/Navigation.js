@@ -39,7 +39,7 @@ const Navigation = () => {
               Shop
             </Link>
             <Link
-              to='/shop'
+              to='/products'
               className='inline-block text-md px-4 py-2 leading-none  text-gray-800  hover:text-blue-500 hover:bg-white mt-4 lg:mt-0 ml-4'
             >
               Product

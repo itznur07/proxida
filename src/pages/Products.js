@@ -5,7 +5,6 @@ import {
   FaEye,
   FaHeart,
   FaList,
-  FaSearch,
   FaShoppingBasket,
   FaStar,
   FaStarHalfAlt,
@@ -14,24 +13,33 @@ import {
 } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getProductCetegories } from "../app/actions/productGetegories";
 import { getProducts } from "../app/actions/productsAction";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
-const Shop = () => {
+const Products = () => {
+ 
+  
   // Get product from state
   const { products } = useSelector((state) => state.products);
+  const { cetegories } = useSelector((state) => state.cetegories);
 
+  console.log(cetegories);
   // filter model
   const [showFiterModel, setShowFilterModel] = useState("hidden");
 
   // show products
   const [showProduct, setShowProduct] = useState(20);
 
+ // fillter ing with calling
+
+
   // api calling
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getProductCetegories());
   }, [dispatch]);
 
   // load more data
@@ -211,15 +219,6 @@ const Shop = () => {
               </ul>
             </div>
 
-            {/* Search Field here  */}
-            <div className="relative">
-              <input
-                type='text'
-                placeholder='Search by product name...'
-                className='border px-5 py-2 w-96 rounded outline-none'
-              />{" "}
-              <FaSearch size={18} className="absolute top-2.5 right-3 text-gray-500 cursor-pointer bottom-0"/>
-            </div>
             {/* Sort Options */}
             <div className='flex flex-row items-center'>
               <span className='font-medium mr-2'>Sort by:</span>
@@ -323,4 +322,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default Products;
